@@ -4,7 +4,7 @@ const Discount = () => {
       className="text-[lightgray] max-[1026px]:justify-center
      max-[768px]:text-center max-[768px]:text-[12px] 
      flex justify-between items-center w-full h-14 bg-[black] 
-     px-3 py-2 text-[16px] border-b-[1px] border-[lightgrey]"
+     px-3 py-2 text-[16px] border-b-[0.5px] border-[lightgrey]"
     >
       <div>
         <span className="text-[14px] ">
