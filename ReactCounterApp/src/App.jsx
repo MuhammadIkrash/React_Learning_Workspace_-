@@ -80,6 +80,16 @@ const App = () => {
           Total Decrement <span>{Dec}</span>
         </div>
       </div>
+      <div className="absolute bottom-5 space-x-2 underline">
+        <h1 className="text-2xl text-center font-bold">My Contact</h1>
+        <a href="https://whatsapp.com/channel/0029Vb6S6AFInlqXdQrg8Q3J">
+          📱 WhatsApp Channel
+        </a>
+        <a href="https://www.linkedin.com/in/m-ikrash">💼 LinkedIn</a>
+        <a href="https://github.com/MuhammadIkrash">💻 GitHub</a>
+        <a href="https://www.behance.net/mohammadikrash1">🎨 Behance</a>
+        <a href="mailto:mikrash62@gmail.com">📧 Email</a>
+      </div>
     </div>
   );
 };
