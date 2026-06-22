@@ -7,7 +7,7 @@ const App = () => {
   let [Res, afRes] = useState(0);
   let [Dec, afDec] = useState(0);
   return (
-    <div className=" bg-[#EEF2FF] w-full h-screen flex flex-col justify-start items-center ">
+    <div className=" bg-[#EEF2FF] select-none w-full h-screen flex flex-col justify-start items-center ">
       <div className="nav select-none flex justify-between mb-20 space-x-80 items-center">
         <div className="text-gray-800 font-bold  text-[48px]">
           Counter <span className="text-[purple]">App</span>
