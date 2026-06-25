@@ -63,7 +63,7 @@ const App = () => {
               <div
                 key={imd}
                 id={imd}
-                className="h-52 w-40 bg-[url('https://img.magnific.com/free-vector/leafy-patterned-note-background_53876-97734.jpg')] bg-cover rounded text-black px-4 py-6 "
+                className="h-52 w-40 overflow-auto scrollbar-none bg-[url('https://img.magnific.com/free-vector/leafy-patterned-note-background_53876-97734.jpg')] bg-cover rounded text-black px-4 py-6 "
               >
                 <h2
                   onClick={() => {
