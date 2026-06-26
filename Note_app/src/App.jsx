@@ -6,6 +6,9 @@ const App = () => {
   const [task, setTask] = useState([]);
   const onFormSub = (e) => {
     e.preventDefault();
+    if (!inputValue.trim() || !textValue.trim())
+      return alert("Empty Note Cannot Be Submit");
+    setTask((prev) => [...prev, { inputValue, textValue }]);
     const copyTask = [...task];
     copyTask.push({ inputValue, textValue });
     setTask(copyTask);
@@ -19,9 +22,9 @@ const App = () => {
   const getTextVal = (e) => {
     setTextValue(e);
   };
-  const delNote = (imd) => {
+  const delNote = (index) => {
     const copyTask = [...task];
-    copyTask.splice(imd, 1);
+    copyTask.splice(index, 1);
     setTask(copyTask);
   };
   return (
@@ -51,25 +54,25 @@ const App = () => {
           }}
           value={textValue}
         />
-        <button className="bg-white active:bg-gray-200 font-medium text-black w-full px-5 py-2 h-20 rounded outline-none">
+        <button className="bg-white cursor-pointer active:bg-gray-200 font-medium text-black w-full px-5 py-2 h-20 rounded outline-none">
           Add Note
         </button>
       </form>
       <div className=" lg:w-1/2 lg:border-l-2 p-10 h-screen overflow-auto scrollbar-none">
         <h1 className="font-bold text-4xl">Recent Notes</h1>
         <div className="flex flex-wrap gap-5 mt-5">
-          {task.map((elm, imd) => {
+          {task.map((Note, index) => {
             return (
               <div
-                key={imd}
-                id={imd}
+                key={index}
                 className="h-52 w-40 overflow-auto scrollbar-none bg-[url('https://img.magnific.com/free-vector/leafy-patterned-note-background_53876-97734.jpg')] bg-cover rounded text-black px-4 py-6 "
               >
                 <h2
                   onClick={() => {
-                    delNote(imd);
+                    delNote(index);
                   }}
-                  className="relative  left-28 bottom-2"
+                  className="relative  left-28 bottom-2 "
+                  title="Delete Note"
                 >
                   <RiCloseFill
                     size={20}
@@ -77,10 +80,10 @@ const App = () => {
                   />
                 </h2>
                 <h3 className="leading-tight font-bold text-xl ">
-                  {elm.inputValue}
+                  {Note.inputValue}
                 </h3>
                 <p className="mt-2 leading-tight font-medium text-gray-500 ">
-                  {elm.textValue}
+                  {Note.textValue}
                 </p>
               </div>
             );
