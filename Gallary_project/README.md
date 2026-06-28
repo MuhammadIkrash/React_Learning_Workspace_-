@@ -1,16 +1,73 @@
-# React + Vite
+# 📸 React Photo Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Photo Gallery application built with React.js that fetches images from an external API. This project was created to practice React Hooks, API integration, state management, and pagination.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Fetch photos from an API
+- Display images dynamically
+- Responsive card layout
+- Pagination (Previous & Next)
+- State management with useState
+- Data fetching with useEffect
+- Clean and modern UI
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React.js
+- JavaScript (ES6+)
+- CSS
+- REST API
 
-## Expanding the ESLint configuration
+## 📚 Concepts Practiced
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- useState
+- useEffect
+- Fetch API
+- Async/Await
+- API Integration
+- Array.map()
+- Conditional Rendering
+- Pagination
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com//react-photo-gallery.git
+Navigate to the project folder:
+
+cd react-Gallary_Project
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+📸 Preview
+
+<img width="1362" height="620" alt="image" src="https://github.com/user-attachments/assets/87bc35cb-1aa7-42ca-9d9f-7fa94e529126" />
+
+🎯 Future Improvements
+🔍 Search functionality
+❤️ Favorite photos
+🌙 Dark/Light mode
+📥 Download images
+🖼️ Image details modal
+♾️ Infinite scrolling
+👨‍💻 Author
+
+Muhammad Ikrash
+
+LinkedIn: https://www.linkedin.com/in/m-ikrash
+GitHub: https://github.com/MuhammadIkrash
+Behance: https://www.behance.net/mohammadikrash1
+Email: mikrash62@gmail.com
+
+⭐ If you found this project helpful, consider giving it a Star!
+
+
+This version is professional, recruiter-friendly, and optimized for GitHub and LinkedIn.
