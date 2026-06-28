@@ -36,7 +36,7 @@ const App = () => {
   }
   return (
     <div className="bg-black lg:h-screen text-white p-4">
-      <div className="flex flex-wrap gap-4 overflow-">{PrintUserData}</div>
+      <div className="flex flex-wrap gap-4 justify-center items-center overflow-">{PrintUserData}</div>
       <Button ind={Index} setInd={setIndex} setUserData={setUserData} />
     </div>
   );
