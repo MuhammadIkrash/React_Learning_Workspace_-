@@ -41,6 +41,14 @@ a {
 }
 
 .btn:hover {
-  background: rgba(92, 91, 91, 0.8);
+  background: #393939 ;
   color: #fff;
+}
+
+.btn.darkBtn{
+  background: #212EA0;
+  color: #fff;
+}
+.btn.darkBtn:hover{
+  background: #3A4EC4;
 }
