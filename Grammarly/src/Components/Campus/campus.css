@@ -18,3 +18,13 @@
 .gallery img:hover{
     transform: scale(1.05);
 }
+/* Media Query For 800px*/
+@media (max-width: 800px) {
+  .gallery{
+   flex-wrap: wrap;
+  }
+  .gallery img{
+    width: 48%;
+    margin-bottom: 20px;
+  }
+}

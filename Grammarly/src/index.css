@@ -41,14 +41,24 @@ a {
 }
 
 .btn:hover {
-  background: #393939 ;
+  background: #393939;
   color: #fff;
 }
 
-.btn.darkBtn{
-  background: #212EA0;
+.btn.darkBtn {
+  background: #212ea0;
   color: #fff;
 }
-.btn.darkBtn:hover{
-  background: #3A4EC4;
+.btn.darkBtn:hover {
+  background: #3a4ec4;
+}
+
+/* Media Query for 1200px*/
+@media (max-width: 1200px) {
+  .container {
+    padding: 0px 5% 0px 5%;
+  }
+  .btn{
+    padding:14px 22px; ;
+  }
 }

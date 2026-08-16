@@ -20,7 +20,56 @@ nav ul li {
   font-size: 16px;
 }
 
-.navDark{
+.navDark {
   background-color: #212ea0;
   transition: 0.3s ease;
+}
+.menuIcon {
+  display: none;
+}
+/* media Query for 1000px */
+@media (max-width: 1000px) {
+  .logo {
+    width: 140px;
+  }
+  nav ul li {
+    margin: 10px 15px;
+  }
+}
+/* media Query for 850px */
+@media (max-width: 850px) {
+  nav {
+    padding: 18px 0px;
+  }
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #212ea0;
+    z-index: -1;
+    width: 200px;
+    padding-top: 70px;
+    transition: 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 25px 40px;
+  }
+  .btn {
+    padding: 14px 20px;
+  }
+  .menuIcon {
+    display: block;
+    width: 30px;
+    cursor: pointer;
+  }
+  .hide-mobile-menu {
+    position: fixed;
+    right: -200px;
+  }
+  nav img {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
 }
