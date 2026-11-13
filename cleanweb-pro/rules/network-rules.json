@@ -1,0 +1,65 @@
+[
+  {
+    "id": 3001,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||google-analytics.com/collect*",
+      "resourceTypes": ["xmlhttprequest", "ping"]
+    }
+  },
+  {
+    "id": 3002,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||googletagmanager.com/gtag/js*",
+      "resourceTypes": ["script"]
+    }
+  },
+  {
+    "id": 3003,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||facebook.com/tr/*",
+      "resourceTypes": ["xmlhttprequest", "ping", "image"]
+    }
+  },
+  {
+    "id": 3004,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||adnxs.com^",
+      "resourceTypes": ["xmlhttprequest", "script", "sub_frame", "image", "other"]
+    }
+  },
+  {
+    "id": 3005,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||taboola.com^",
+      "resourceTypes": ["xmlhttprequest", "script", "sub_frame", "image", "other"]
+    }
+  },
+  {
+    "id": 3006,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||outbrain.com^",
+      "resourceTypes": ["xmlhttprequest", "script", "sub_frame", "image", "other"]
+    }
+  },
+  {
+    "id": 3007,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||scorecardresearch.com^",
+      "resourceTypes": ["xmlhttprequest", "script", "image", "other"]
+    }
+  }
+]

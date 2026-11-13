@@ -1,0 +1,210 @@
+{
+  "manifest_version": 3,
+  "name": "CleanWeb Pro",
+  "short_name": "CleanWeb Pro",
+  "version": "1.0.1",
+  "description": "A cleaner web. A smarter YouTube. Privacy-first ad cleanup, an element zapper, and a full YouTube control center \u2014 all local, nothing tracked.",
+  "author": "CleanWeb Pro",
+  "minimum_chrome_version": "114",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://m.youtube.com/*",
+    "https://music.youtube.com/*",
+    "https://www.google.com/search*",
+    "https://www.google.co.uk/search*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    },
+    "default_title": "CleanWeb Pro"
+  },
+  "options_page": "src/options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "src/content/shared/namespace.js",
+        "src/content/shared/constants.js",
+        "src/content/shared/utils.js",
+        "src/content/shared/logger.js",
+        "src/content/shared/validators.js",
+        "src/content/core/site-detector.js",
+        "src/content/core/observer-manager.js",
+        "src/content/core/notification-manager.js",
+        "src/content/core/cleanup-manager.js",
+        "src/content/core/feature-manager.js",
+        "src/content/zapper/selector-generator.js",
+        "src/content/zapper/zapper-overlay.js",
+        "src/content/zapper/zapper-storage.js",
+        "src/content/zapper/element-zapper.js",
+        "src/content/filters/filter-engine.js",
+        "src/content/filters/custom-filters.js",
+        "src/content/youtube/youtube-ad-detector.js",
+        "src/content/youtube/youtube-ad-handler.js",
+        "src/content/youtube/youtube-dom-cleaner.js",
+        "src/content/youtube/youtube-speed.js",
+        "src/content/youtube/youtube-quality.js",
+        "src/content/youtube/youtube-volume.js",
+        "src/content/youtube/youtube-pip.js",
+        "src/content/youtube/youtube-theater.js",
+        "src/content/youtube/youtube-cinema.js",
+        "src/content/youtube/youtube-navigation.js",
+        "src/content/youtube/youtube-enhancements.js",
+        "src/content/youtube/youtube-shorts.js",
+        "src/content/youtube/youtube-shortcuts.js",
+        "src/content/youtube/youtube-player.js",
+        "src/content/core/bootstrap.js"
+      ],
+      "css": [
+        "src/content/youtube/youtube-styles.css",
+        "src/content/zapper/zapper-styles.css",
+        "src/content/core/notification-styles.css"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.google.com/search*",
+        "https://www.google.co.uk/search*"
+      ],
+      "js": [
+        "src/content/shared/namespace.js",
+        "src/content/shared/constants.js",
+        "src/content/shared/utils.js",
+        "src/content/shared/logger.js",
+        "src/content/shared/validators.js",
+        "src/content/core/site-detector.js",
+        "src/content/core/observer-manager.js",
+        "src/content/core/notification-manager.js",
+        "src/content/core/cleanup-manager.js",
+        "src/content/core/feature-manager.js",
+        "src/content/zapper/selector-generator.js",
+        "src/content/zapper/zapper-overlay.js",
+        "src/content/zapper/zapper-storage.js",
+        "src/content/zapper/element-zapper.js",
+        "src/content/filters/filter-engine.js",
+        "src/content/filters/custom-filters.js",
+        "src/content/google/google-ad-cleaner.js",
+        "src/content/google/google-search-cleaner.js",
+        "src/content/google/google-enhancements.js",
+        "src/content/core/bootstrap.js"
+      ],
+      "css": [
+        "src/content/google/google-styles.css",
+        "src/content/zapper/zapper-styles.css",
+        "src/content/core/notification-styles.css"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*",
+        "https://www.google.com/search*",
+        "https://www.google.co.uk/search*",
+        "https://*.google.com/recaptcha/*"
+      ],
+      "js": [
+        "src/content/shared/namespace.js",
+        "src/content/shared/constants.js",
+        "src/content/shared/utils.js",
+        "src/content/shared/logger.js",
+        "src/content/shared/validators.js",
+        "src/content/core/site-detector.js",
+        "src/content/core/observer-manager.js",
+        "src/content/core/notification-manager.js",
+        "src/content/core/cleanup-manager.js",
+        "src/content/core/feature-manager.js",
+        "src/content/zapper/selector-generator.js",
+        "src/content/zapper/zapper-overlay.js",
+        "src/content/zapper/zapper-storage.js",
+        "src/content/zapper/element-zapper.js",
+        "src/content/filters/filter-engine.js",
+        "src/content/filters/custom-filters.js",
+        "src/content/core/bootstrap.js"
+      ],
+      "css": [
+        "src/content/zapper/zapper-styles.css",
+        "src/content/core/notification-styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "youtube_rules",
+        "enabled": true,
+        "path": "rules/youtube-rules.json"
+      },
+      {
+        "id": "google_rules",
+        "enabled": true,
+        "path": "rules/google-rules.json"
+      },
+      {
+        "id": "network_rules",
+        "enabled": true,
+        "path": "rules/network-rules.json"
+      }
+    ]
+  },
+  "commands": {
+    "toggle-protection": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Toggle CleanWeb Pro protection"
+    },
+    "activate-zapper": {
+      "suggested_key": {
+        "default": "Alt+Shift+Z"
+      },
+      "description": "Activate Element Zapper"
+    },
+    "toggle-theater": {
+      "suggested_key": {
+        "default": "Alt+Shift+T"
+      },
+      "description": "Toggle Theater Mode"
+    },
+    "toggle-cinema": {
+      "suggested_key": {
+        "default": "Alt+Shift+C"
+      },
+      "description": "Toggle Cinema Mode"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

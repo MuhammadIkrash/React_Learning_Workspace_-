@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanWeb Pro</title>
+  <link rel="stylesheet" href="../shared/theme.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup" data-theme="dark">
+    <header class="popup-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🛡️</span>
+        <div class="brand-text">
+          <span class="brand-name">CleanWeb Pro</span>
+          <span class="brand-status" id="statusLabel">Protected</span>
+        </div>
+      </div>
+      <button class="icon-btn" id="dashboardBtn" title="Open dashboard" aria-label="Open dashboard">⚙️</button>
+    </header>
+
+    <section class="site-card">
+      <div class="site-card-row">
+        <span class="site-card-label">Current site</span>
+        <span class="site-card-value" id="currentSite">—</span>
+      </div>
+      <label class="switch-row">
+        <span>Protection</span>
+        <span class="switch">
+          <input type="checkbox" id="protectionToggle" />
+          <span class="switch-track"><span class="switch-thumb"></span></span>
+        </span>
+      </label>
+      <button class="text-btn" id="whitelistBtn">Whitelist this site</button>
+    </section>
+
+    <section class="quick-actions">
+      <h2 class="section-title">Quick actions</h2>
+      <div class="action-grid">
+        <button class="action-btn" id="zapperBtn" data-action="zapper">
+          <span class="action-icon">⚡</span><span>Zapper</span>
+        </button>
+        <button class="action-btn" id="speedBtn" data-action="speed">
+          <span class="action-icon">🎬</span><span>Speed</span>
+        </button>
+        <button class="action-btn" id="qualityBtn" data-action="quality">
+          <span class="action-icon">📺</span><span>Quality</span>
+        </button>
+        <button class="action-btn" id="volumeBtn" data-action="volume">
+          <span class="action-icon">🔊</span><span>Volume</span>
+        </button>
+        <button class="action-btn" id="pipBtn" data-action="pip">
+          <span class="action-icon">🎥</span><span>PiP</span>
+        </button>
+        <button class="action-btn" id="cinemaBtn" data-action="cinema">
+          <span class="action-icon">🌙</span><span>Cinema</span>
+        </button>
+      </div>
+      <p class="hint" id="actionsHint">Open a YouTube video to use player controls.</p>
+    </section>
+
+    <section class="stats">
+      <h2 class="section-title">Blocked</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="statToday">0</span>
+          <span class="stat-label">Today</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statAllTime">0</span>
+          <span class="stat-label">Total</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="popup-footer">
+      <button class="primary-btn" id="openDashboardBtn">Open Dashboard</button>
+    </footer>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

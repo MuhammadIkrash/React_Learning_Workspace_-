@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CleanWeb Pro — Dashboard</title>
+<link rel="stylesheet" href="../shared/theme.css" />
+<link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+<div class="shell" id="shell">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="sidebar-brand-mark">🛡️</span>
+      <div>
+        <div class="sidebar-brand-name">CleanWeb Pro</div>
+        <div class="sidebar-brand-tagline">A cleaner web. A smarter YouTube.</div>
+      </div>
+    </div>
+
+    <div class="protection-banner" id="protectionBanner">
+      <span class="protection-dot"></span>
+      <span id="protectionBannerText">PROTECTED</span>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebarNav">
+      <button class="nav-item active" data-section="overview">Overview</button>
+      <button class="nav-item" data-section="youtube">YouTube</button>
+      <button class="nav-item" data-section="google">Google</button>
+      <button class="nav-item" data-section="zapper">Zapper</button>
+      <button class="nav-item" data-section="filters">Filters</button>
+      <button class="nav-item" data-section="privacy">Privacy</button>
+      <button class="nav-item" data-section="appearance">Appearance</button>
+      <button class="nav-item" data-section="shortcuts">Shortcuts</button>
+      <button class="nav-item" data-section="statistics">Statistics</button>
+      <button class="nav-item" data-section="advanced">Advanced</button>
+    </nav>
+
+    <div class="sidebar-footer">v1.0.0 · Local-only</div>
+  </aside>
+
+  <main class="content">
+
+    <!-- OVERVIEW -->
+    <section class="panel" id="panel-overview" data-panel="overview">
+      <h1>Overview</h1>
+      <p class="panel-lede">CleanWeb Pro is running entirely on this device. Nothing you browse is ever sent anywhere.</p>
+
+      <div class="card-grid">
+        <div class="stat-card-lg">
+          <span class="stat-card-lg-value" id="ovAdsBlocked">0</span>
+          <span class="stat-card-lg-label">Ads blocked (all time)</span>
+        </div>
+        <div class="stat-card-lg">
+          <span class="stat-card-lg-value" id="ovVideoAds">0</span>
+          <span class="stat-card-lg-label">Video ads</span>
+        </div>
+        <div class="stat-card-lg">
+          <span class="stat-card-lg-value" id="ovGoogleAds">0</span>
+          <span class="stat-card-lg-label">Google ads</span>
+        </div>
+        <div class="stat-card-lg">
+          <span class="stat-card-lg-value" id="ovZapped">0</span>
+          <span class="stat-card-lg-label">Elements zapped</span>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-title">Master protection</div>
+            <div class="settings-row-desc">Turns all blocking and cleanup features on or off everywhere.</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="masterProtection" /><span class="switch-track"><span class="switch-thumb"></span></span></label>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Feature overview</h2>
+      <div class="toggle-grid" id="overviewToggleGrid"></div>
+    </section>
+
+    <!-- YOUTUBE -->
+    <section class="panel hidden" id="panel-youtube" data-panel="youtube">
+      <h1>YouTube</h1>
+      <p class="panel-lede">Ad protection, the player Control Center, and feed cleanup — each toggle is independent.</p>
+
+      <h2 class="section-heading">Ad protection</h2>
+      <div class="toggle-list" id="youtubeAdToggles"></div>
+
+      <h2 class="section-heading">Player Control Center</h2>
+      <div class="toggle-list" id="youtubePlayerToggles"></div>
+
+      <div class="settings-card">
+        <div class="field-row">
+          <label for="preferredSpeed">Default speed</label>
+          <select id="preferredSpeed"></select>
+        </div>
+        <div class="field-row">
+          <label for="preferredQuality">Default quality</label>
+          <select id="preferredQuality"></select>
+        </div>
+        <div class="field-row">
+          <label for="volumeBoostLevel">Default volume boost</label>
+          <select id="volumeBoostLevel"></select>
+        </div>
+        <div class="field-row">
+          <label for="controlsDensity">Controls density</label>
+          <select id="controlsDensity">
+            <option value="expanded">Expanded</option>
+            <option value="compact">Compact</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <label for="controlsVisibility">Controls visibility</label>
+          <select id="controlsVisibility">
+            <option value="show">Show</option>
+            <option value="hide">Hide</option>
+          </select>
+        </div>
+      </div>
+
+      <h2 class="section-heading">Feed &amp; UI cleanup</h2>
+      <div class="toggle-list" id="youtubeCleanupToggles"></div>
+
+      <h2 class="section-heading">Playback power features</h2>
+      <div class="toggle-list" id="youtubePowerToggles"></div>
+    </section>
+
+    <!-- GOOGLE -->
+    <section class="panel hidden" id="panel-google" data-panel="google">
+      <h1>Google</h1>
+      <p class="panel-lede">Search ad cleanup and optional layout tweaks. Organic results are never touched.</p>
+      <div class="toggle-list" id="googleToggles"></div>
+    </section>
+
+    <!-- ZAPPER -->
+    <section class="panel hidden" id="panel-zapper" data-panel="zapper">
+      <h1>Element Zapper</h1>
+      <p class="panel-lede">Rules you save with the Zapper live here, grouped by site. Removing a rule restores that element.</p>
+      <div class="settings-card">
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-title">Element Zapper enabled</div>
+            <div class="settings-row-desc">Alt+Shift+Z or the popup's Zapper button activates it on any page.</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="zapperEnabled" /><span class="switch-track"><span class="switch-thumb"></span></span></label>
+        </div>
+      </div>
+      <div id="zapperRulesList" class="rules-list"></div>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="panel hidden" id="panel-filters" data-panel="filters">
+      <h1>Custom Filters</h1>
+      <p class="panel-lede">Hide or remove elements on any domain using a CSS selector you provide.</p>
+
+      <form class="settings-card" id="filterForm">
+        <div class="field-row">
+          <label for="filterDomain">Domain</label>
+          <input id="filterDomain" type="text" placeholder="example.com" required />
+        </div>
+        <div class="field-row">
+          <label for="filterSelector">CSS selector</label>
+          <input id="filterSelector" type="text" placeholder=".some-popup" required />
+        </div>
+        <div class="field-row">
+          <label for="filterAction">Action</label>
+          <select id="filterAction">
+            <option value="hide">Hide</option>
+            <option value="remove">Remove</option>
+          </select>
+        </div>
+        <button type="submit" class="primary-btn">Add filter</button>
+        <p class="field-error" id="filterFormError"></p>
+      </form>
+
+      <div id="filtersList" class="rules-list"></div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="panel hidden" id="panel-privacy" data-panel="privacy">
+      <h1>Privacy</h1>
+      <p class="panel-lede">Exactly what CleanWeb Pro stores, in plain language.</p>
+
+      <div class="settings-card privacy-card">
+        <h3>What stays on this device</h3>
+        <ul>
+          <li>Your settings, whitelist, custom filters, and Zapper rules — stored in this browser's local extension storage.</li>
+          <li>Local statistics (counts of ads blocked, elements zapped) — never transmitted anywhere.</li>
+          <li>Playback position and speed/quality preferences, if you enable "remember playback position".</li>
+        </ul>
+        <h3>What CleanWeb Pro never does</h3>
+        <ul>
+          <li>Never reads your passwords or cookies.</li>
+          <li>Never collects or transmits your browsing history.</li>
+          <li>Never sends the URLs you visit to any server.</li>
+          <li>Never runs analytics or third-party trackers of its own.</li>
+          <li>Never injects remote JavaScript — every script shipped with CleanWeb Pro is in this package.</li>
+          <li>Never sells or shares data — there is no server to send it to.</li>
+        </ul>
+      </div>
+
+      <div class="settings-card">
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-title">Debug logging</div>
+            <div class="settings-row-desc">Verbose console logs for troubleshooting. Off by default.</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="debugMode" /><span class="switch-track"><span class="switch-thumb"></span></span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPEARANCE -->
+    <section class="panel hidden" id="panel-appearance" data-panel="appearance">
+      <h1>Appearance</h1>
+      <div class="settings-card">
+        <div class="field-row">
+          <label for="themeSelect">Theme</label>
+          <select id="themeSelect">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="system">System</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <label for="controlPosition">Control Center position</label>
+          <select id="controlPosition">
+            <option value="bottom-right">Bottom right</option>
+            <option value="bottom-left">Bottom left</option>
+            <option value="top-right">Top right</option>
+            <option value="top-left">Top left</option>
+          </select>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-title">Compact UI</div>
+            <div class="settings-row-desc">Tighter spacing across the dashboard and popup.</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="compactUI" /><span class="switch-track"><span class="switch-thumb"></span></span></label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-title">Animations</div>
+            <div class="settings-row-desc">Toast and transition animations.</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="animationsToggle" /><span class="switch-track"><span class="switch-thumb"></span></span></label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-title">Smart notifications</div>
+            <div class="settings-row-desc">On-page toasts like "Ad blocked" or "Speed changed to 2x".</div>
+          </div>
+          <label class="switch"><input type="checkbox" id="smartNotifications" /><span class="switch-track"><span class="switch-thumb"></span></span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHORTCUTS -->
+    <section class="panel hidden" id="panel-shortcuts" data-panel="shortcuts">
+      <h1>Keyboard Shortcuts</h1>
+      <p class="panel-lede">Click a field and press a new key combination to change it. Global shortcuts (protection, zapper) are managed by Chrome — open <code>chrome://extensions/shortcuts</code> to edit those.</p>
+      <div class="settings-card" id="shortcutsList"></div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="panel hidden" id="panel-statistics" data-panel="statistics">
+      <h1>Statistics</h1>
+      <div class="range-tabs" id="statsRangeTabs">
+        <button class="range-tab active" data-range="today">Today</button>
+        <button class="range-tab" data-range="last7">7 days</button>
+        <button class="range-tab" data-range="last30">30 days</button>
+        <button class="range-tab" data-range="allTime">All time</button>
+      </div>
+      <div class="card-grid" id="statsGrid"></div>
+      <button class="text-btn danger" id="resetStatsBtn">Reset statistics</button>
+    </section>
+
+    <!-- ADVANCED -->
+    <section class="panel hidden" id="panel-advanced" data-panel="advanced">
+      <h1>Advanced</h1>
+
+      <h2 class="section-heading">Performance</h2>
+      <div class="settings-card">
+        <div class="perf-row"><span>Protection engine</span><span class="perf-value" id="perfEngine">Active</span></div>
+        <div class="perf-row"><span>DOM observers</span><span class="perf-value" id="perfObservers">Active</span></div>
+        <div class="perf-row"><span>Features enabled</span><span class="perf-value" id="perfFeatures">—</span></div>
+      </div>
+
+      <h2 class="section-heading">Whitelist</h2>
+      <div class="settings-card">
+        <div class="field-row">
+          <label for="whitelistInput">Add domain</label>
+          <input id="whitelistInput" type="text" placeholder="example.com" />
+        </div>
+        <button class="primary-btn" id="whitelistAddBtn">Add to whitelist</button>
+        <p class="field-error" id="whitelistError"></p>
+      </div>
+      <div id="whitelistList" class="rules-list"></div>
+
+      <h2 class="section-heading">Import / Export</h2>
+      <div class="settings-card row-actions">
+        <button class="secondary-btn" id="exportBtn">Export settings</button>
+        <label class="secondary-btn file-btn">
+          Import settings
+          <input type="file" id="importInput" accept="application/json" hidden />
+        </label>
+      </div>
+      <p class="field-error" id="importError"></p>
+
+      <h2 class="section-heading">Backup / Restore</h2>
+      <div class="settings-card row-actions">
+        <button class="secondary-btn" id="backupBtn">Create backup</button>
+        <label class="secondary-btn file-btn">
+          Restore backup
+          <input type="file" id="restoreInput" accept="application/json" hidden />
+        </label>
+        <button class="danger-btn" id="resetAllBtn">Reset all settings</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="modal hidden" id="confirmModal">
+  <div class="modal-card">
+    <h3 id="confirmModalTitle">Are you sure?</h3>
+    <p id="confirmModalBody"></p>
+    <div class="modal-actions">
+      <button class="secondary-btn" id="confirmModalCancel">Cancel</button>
+      <button class="danger-btn" id="confirmModalConfirm">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script src="dashboard.js" type="module"></script>
+</body>
+</html>

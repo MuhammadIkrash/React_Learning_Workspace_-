@@ -1,0 +1,182 @@
+/* ============ Ad / feed cleanup ============ */
+.cwp-hidden {
+  display: none !important;
+}
+
+/* ============ Control Center ============ */
+#movie_player {
+  position: relative; /* anchor point for the floating panel */
+}
+
+.cwp-control-center {
+  position: absolute;
+  z-index: 60; /* below YouTube's own gradient/controls (70+) so we never cover them */
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 10px;
+  background: rgba(13, 20, 22, 0.72);
+  backdrop-filter: blur(6px);
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  pointer-events: auto;
+  transition: opacity 160ms ease;
+}
+
+.cwp-control-center.cwp-cc-hidden {
+  display: none;
+}
+
+.cwp-cc-position-bottom-right { right: 12px; bottom: 56px; }
+.cwp-cc-position-bottom-left { left: 12px; bottom: 56px; }
+.cwp-cc-position-top-right { right: 12px; top: 12px; }
+.cwp-cc-position-top-left { left: 12px; top: 12px; }
+
+.cwp-cc-density-compact .cwp-cc-btn { padding: 4px 6px; font-size: 12px; }
+.cwp-cc-density-expanded .cwp-cc-btn { padding: 6px 10px; font-size: 13px; }
+
+.cwp-cc-item {
+  position: relative;
+}
+
+.cwp-cc-btn {
+  appearance: none;
+  border: none;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #eef6f5;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background 120ms ease;
+}
+
+.cwp-cc-btn:hover,
+.cwp-cc-btn:focus-visible {
+  background: rgba(45, 212, 191, 0.28);
+}
+
+.cwp-cc-btn:focus-visible {
+  outline: 2px solid #2dd4bf;
+  outline-offset: 1px;
+}
+
+.cwp-cc-btn-active {
+  background: rgba(45, 212, 191, 0.4);
+}
+
+.cwp-cc-menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  min-width: 140px;
+  max-height: 260px;
+  overflow-y: auto;
+  background: rgba(13, 20, 22, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cwp-cc-menu-hidden {
+  display: none;
+}
+
+.cwp-cc-menu-item {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: #eef6f5;
+  text-align: left;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.cwp-cc-menu-item:hover:not(.cwp-cc-menu-item-disabled) {
+  background: rgba(45, 212, 191, 0.22);
+}
+
+.cwp-cc-menu-item-disabled {
+  color: rgba(238, 246, 245, 0.4);
+  cursor: not-allowed;
+}
+
+/* ============ Theater mode ============ */
+ytd-watch-flexy.cwp-theater-active #primary.ytd-watch-flexy {
+  max-width: 100% !important;
+}
+
+ytd-watch-flexy.cwp-theater-active #player-container-outer {
+  max-width: 100vw !important;
+}
+
+/* ============ Cinema mode ============ */
+.cwp-cinema-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 55; /* above page chrome, below the player itself */
+  background: rgba(0, 0, 0, var(--cwp-cinema-opacity, 0.75));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 100%, 0 100%, 0 0,
+    var(--cwp-cinema-left, 0) var(--cwp-cinema-top, 0),
+    var(--cwp-cinema-left, 0) calc(var(--cwp-cinema-top, 0) + var(--cwp-cinema-height, 0)),
+    calc(var(--cwp-cinema-left, 0) + var(--cwp-cinema-width, 0)) calc(var(--cwp-cinema-top, 0) + var(--cwp-cinema-height, 0)),
+    calc(var(--cwp-cinema-left, 0) + var(--cwp-cinema-width, 0)) var(--cwp-cinema-top, 0),
+    var(--cwp-cinema-left, 0) var(--cwp-cinema-top, 0)
+  );
+}
+
+.cwp-cinema-overlay.cwp-cinema-visible {
+  opacity: 1;
+}
+
+/* ============ Optional cleanup toggles (each driven by a settings class on <html>) ============ */
+html.cwp-hide-endscreen ytd-watch-flexy .ytp-ce-element,
+html.cwp-hide-endscreen ytd-watch-flexy .ytp-endscreen-content {
+  display: none !important;
+}
+
+html.cwp-hide-annotations .ytp-ad-overlay-container,
+html.cwp-hide-annotations .annotation {
+  display: none !important;
+}
+
+html.cwp-compact-comments ytd-comments#comments ytd-comment-thread-renderer {
+  margin-bottom: 4px !important;
+}
+
+html.cwp-hide-livechat #chat-container.ytd-watch-flexy {
+  display: none !important;
+}
+
+html.cwp-focus-mode #secondary.ytd-watch-flexy,
+html.cwp-focus-mode ytd-comments#comments,
+html.cwp-focus-mode #masthead-ad {
+  display: none !important;
+}
+
+html.cwp-feed-cleaner ytd-rich-shelf-renderer[is-shorts],
+html.cwp-feed-cleaner ytd-reel-shelf-renderer {
+  display: none !important;
+}
+
+/* ============ Shorts cleanup ============ */
+html.cwp-shorts-cleanup ytd-reel-player-overlay-renderer .ytp-ad-overlay-container {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cwp-control-center,
+  .cwp-cinema-overlay {
+    transition: none !important;
+  }
+}

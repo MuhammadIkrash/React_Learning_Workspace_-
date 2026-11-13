@@ -1,0 +1,87 @@
+/**
+ * theme.css — CleanWeb Pro's theme engine (section 27).
+ * Every UI surface (popup, dashboard, options) imports this file and then
+ * only ever references these variables — no hardcoded colors in components.
+ * Theme selection is applied by toggling `data-theme="dark|light"` on the
+ * surface's root element; "system" resolves to one of the two via JS reading
+ * prefers-color-scheme (see shared/theme-apply.js).
+ */
+
+:root,
+[data-theme="dark"] {
+  --cwp-bg: #0d1416;
+  --cwp-bg-elevated: #121b1d;
+  --cwp-bg-card: #16211f;
+  --cwp-border: rgba(255, 255, 255, 0.08);
+  --cwp-border-strong: rgba(255, 255, 255, 0.16);
+  --cwp-text: #eef6f5;
+  --cwp-text-muted: rgba(238, 246, 245, 0.62);
+  --cwp-text-faint: rgba(238, 246, 245, 0.4);
+  --cwp-accent: #2dd4bf;
+  --cwp-accent-strong: #14b8a6;
+  --cwp-accent-soft: rgba(45, 212, 191, 0.16);
+  --cwp-danger: #f87171;
+  --cwp-danger-soft: rgba(248, 113, 113, 0.14);
+  --cwp-success: #4ade80;
+  --cwp-warning: #fbbf24;
+  --cwp-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --cwp-radius-sm: 6px;
+  --cwp-radius-md: 10px;
+  --cwp-radius-lg: 16px;
+  --cwp-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --cwp-font-mono: "SF Mono", "Cascadia Code", Consolas, monospace;
+  --cwp-transition: 160ms ease;
+}
+
+[data-theme="light"] {
+  --cwp-bg: #f5f7f7;
+  --cwp-bg-elevated: #ffffff;
+  --cwp-bg-card: #ffffff;
+  --cwp-border: rgba(15, 23, 24, 0.09);
+  --cwp-border-strong: rgba(15, 23, 24, 0.16);
+  --cwp-text: #101819;
+  --cwp-text-muted: rgba(16, 24, 25, 0.62);
+  --cwp-text-faint: rgba(16, 24, 25, 0.42);
+  --cwp-accent: #0d9488;
+  --cwp-accent-strong: #0f766e;
+  --cwp-accent-soft: rgba(13, 148, 136, 0.12);
+  --cwp-danger: #dc2626;
+  --cwp-danger-soft: rgba(220, 38, 38, 0.1);
+  --cwp-success: #16a34a;
+  --cwp-warning: #d97706;
+  --cwp-shadow: 0 10px 26px rgba(15, 23, 24, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--cwp-bg);
+  color: var(--cwp-text);
+  font-family: var(--cwp-font);
+}
+
+.cwp-no-animations * {
+  transition: none !important;
+  animation: none !important;
+}
+
+::selection {
+  background: var(--cwp-accent-soft);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cwp-border-strong);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
